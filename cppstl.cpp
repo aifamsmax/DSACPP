@@ -141,5 +141,7 @@ int main()
     // // greater<int> is an inbuilt comparator
     // // which works only if you wanna do this in descending 
     // sort(arr, arr+n, greater<int>); 
+    // s==t u can directly compare sets like this
+    
     return 0;
 }
