@@ -16,33 +16,24 @@ int main()
     cin >> t;
     while(t--)
     {
-        int n,m;
-        cin>>n>>m;
-        vector<vector<int>> vec(n, vector<int> (m, 0));
-        for(int i=0;i<n;i++)
-        {
-            for(int j=0;j<m;j++)
-            {
-                cin>>vec[i][j];
-            }
+      int n;
+      cin>>n;
+      string s;
+      cin>>s;
+      int i=0,j=n-1;
+      int res=0;
+      while(i<=j)
+      {
+        if(s[i]=='(' and s[j]==')')i++,j--;
+        else if(s[i]=='(' and s[j]=='(')res++,j--;
+        else if(s[i]==')' and s[j]==')')res++,i++;
+        else{
+            i++;
+            j--;
+            res=res+2;
         }
-        int x,y;
-        int max_element=INT_MIN;
-        for(int i=0;i<n;i++)
-        {
-            for(int j=0;j<m;j++)
-            {
-                if(vec[i][j]>max_element)
-                {
-                    max_element=vec[i][j];
-                    x=i;
-                    y=j;
-                }
-            }
-        }
-        x++;
-        y++;
-        cout<<max(n-x+1,x)*max(m-y+1,y)<<endl;
+      }
+        cout<<res<<endl;
     }
     return 0;
 }
